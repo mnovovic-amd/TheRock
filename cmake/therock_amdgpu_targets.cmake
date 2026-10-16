@@ -214,6 +214,10 @@ therock_add_amdgpu_target(gfx1103 "AMD Radeon 780M Laptop iGPU" FAMILY igpu-all 
     rocprofiler-compute # https://github.com/ROCm/TheRock/issues/2892
 )
 
+# Frozen gfx11-generic family target. This is a build/package target, not a
+# physical GPU; concrete gfx11 members remain the runtime test targets.
+therock_add_amdgpu_target(gfx11-generic "Frozen gfx11 generic family" FAMILY gfx11-all)
+
 # gfx115X family
 therock_add_amdgpu_target(gfx1150 "AMD Strix Point iGPU" FAMILY igpu-all gfx115X-all gfx115X-igpu
   EXCLUDE_TARGET_PROJECTS

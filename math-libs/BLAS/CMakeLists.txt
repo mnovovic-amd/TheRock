@@ -19,6 +19,9 @@ endif()
 ##############################################################################
 # hipBLAS-common
 ##############################################################################
+set(HIPBLASLT_GENERIC_ONLY OFF CACHE BOOL
+  "Build only the gfx11-generic hipBLASLt Tensile library")
+
 set(_blas_subproject_names)
 
 therock_cmake_subproject_declare(hipBLAS-common
@@ -174,6 +177,7 @@ therock_cmake_subproject_declare(hipBLASLt
     -DHIPBLASLT_ENABLE_ROCROLLER=${_enable_rocRoller}
     -DHIPBLASLT_ENABLE_FETCH=OFF
     -DHIPBLASLT_ENABLE_THEROCK=ON
+    -DHIPBLASLT_GENERIC_ONLY=${HIPBLASLT_GENERIC_ONLY}
   CMAKE_INCLUDES
     therock_explicit_finders.cmake
   COMPILER_TOOLCHAIN
